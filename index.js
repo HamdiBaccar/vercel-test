@@ -25,6 +25,6 @@ app.use('/api/Clients', clientRoutes);
 app.use('/api/QuizzResults', quizResultsRoutes);
 app.use('/api/ClientBadges', clientBadgesRoutes);
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+app.listen(port||process.env.PORT, () => {
+  console.log('Server is running.....');
 });
