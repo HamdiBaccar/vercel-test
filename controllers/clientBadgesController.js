@@ -1,4 +1,4 @@
-const ClientBadges = require('../models/ClientBadges');
+const ClientBadges = require('../Models/ClientBadges');
 
 //POST
 exports.createClientBadge = async (req, res) => {
