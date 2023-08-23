@@ -16,6 +16,7 @@ const quizRoutes = require('./routes/quizzesRoutes');
 const questionRoutes = require('./routes/questionsRoutes');
 const quizResultsRoutes = require('./routes/quizResultsRoutes');
 const clientBadgesRoutes = require('./routes/clientbdgRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 app.use('/api/Questions', questionRoutes);
 app.use('/api/Badges', badgeRoutes);
@@ -24,6 +25,7 @@ app.use('/api/Admins', adminRoutes);
 app.use('/api/Clients', clientRoutes);
 app.use('/api/QuizzResults', quizResultsRoutes);
 app.use('/api/ClientBadges', clientBadgesRoutes);
+app.use('/api/auth', authRoutes);
 
 app.listen(port||process.env.PORT, () => {
   console.log('Server is running.....');

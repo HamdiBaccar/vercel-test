@@ -7,6 +7,7 @@ const QuesSchema = mongoose.Schema({
                   ref: 'Quizzes',
                   required: true
                   },
+  Options : { type: Array, required: true },
   QuestionText: { type: String, required: true },
   CorrectAnswer: { type: String, required: true },
 });
