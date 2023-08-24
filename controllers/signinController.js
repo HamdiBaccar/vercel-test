@@ -12,17 +12,17 @@ const generateSecretKey = () => {
 
 //sign-in
 exports.login = async (req, res) => {
-  const { email, password } = req.body;
+  const { Email, Password } = req.body;
 
   try {
-    const user = await Client.findOne({ Email: email });
+    const user = await Client.findOne({ Email: Email });
     if (!user) return res.status(401).json({ error: 'Invalid credentials' });
 
-    const validPassword = await bcrypt.compare(password, user.PasswordHash);
+    const validPassword = await bcrypt.compare(Password, user.Password);
     if (!validPassword) return res.status(401).json({ error: 'Invalid credentials' });
 
     const secretKey = generateSecretKey();
-       const token = jwt.sign({ email: user.Email }, secretKey, { expiresIn: '1h' });
+       const token = jwt.sign({ Email: user.Email }, secretKey, { expiresIn: '1h' });
        res.json({ token });
      } catch (error) {
        res.status(500).json({ error: 'An error occurred' });
